@@ -1,7 +1,13 @@
 # Colorize
 A library for colorizing texts in terminal.
 
-# Demo
+
+<h1 align="center">Demo</h1>
+<p align="center">
+  <img width="45%" src="assets/colorize-demo.gif" alt="Demo GIF">
+  &nbsp; &nbsp; &nbsp;
+  <img width="45%" src="assets/gradient-demo.png" alt="Demo Gradiant">
+</p>
 
 
 ## Supported on
