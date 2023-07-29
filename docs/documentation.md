@@ -19,7 +19,7 @@ Colorize provides you with 3 ways of colorizing texts.
 
 1. [**24 BIT**](#24-bit-or-true-color)
 2. [**8 BIT**](#8-bit)
-3. [**3/4 BIT**](#34-bit)
+3. [**3/4 BIT**](#3/4-bit)
 
 # 24 BIT or True Color
 Modern OSs (`e.g. MacOS, Linux`) and Terminal Enulators (`e.g. Alacritty, Secure ShellFish, Blink Shell, KDE Konsole, etc.`) can and do support True Coloring scheme, which consists of about 16 million colors.
@@ -155,7 +155,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 <br>
 
-### 3/4 BIT <sup>16 <sup>[**1**](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L70-L114), [**2**](#34-bit)</sup></sup>
+### 3/4 BIT <sup>16 <sup>[**1**](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L70-L114), [**2**](#3/4-bit)</sup></sup>
 
 - #### Use by value
   ```CPP
@@ -241,7 +241,7 @@ You can use different ranges of colors, contrary to the intended function.
 
 |                   |   Colorize::rich4   |   Colorize::rich8   |       Colorize::rich24       |
 |       :---:       |        :---:        |        :---:        |             :---:            |
-|  **Color-Range**  | `0` through `15` <sup>&#8226; **See** [**1**](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L70-L114), [**2**](#34-bit)</sup> | `0` through `255` <sup>&#8226; **See** [**1**](#8-bit)</sup>  | `#000000` through `#ffffff` <sup>&#8226; **See** [**1**](#24-bit-or-true-color)</sup>  |
+|  **Color-Range**  | `0` through `15` <sup>&#8226; **See** [**1**](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L70-L114), [**2**](#3/4-bit)</sup> | `0` through `255` <sup>&#8226; **See** [**1**](#8-bit)</sup>  | `#000000` through `#ffffff` <sup>&#8226; **See** [**1**](#24-bit-or-true-color)</sup>  |
 |   **No-Color**    | `≤ -1` | `≤ -1` or `256 ≤` | `≤ -1` or `#ffffff ≤`      |
 
 Let's say you just want to add a *Background Color* and you want the *Foreground Color* to be nothing (or rather unchanged).
