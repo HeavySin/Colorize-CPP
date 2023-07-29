@@ -35,7 +35,7 @@
 std::cout << Colorize::rich24<0xeb106f, 0x263640>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
 ```
 ##### which gives
-<img width="20%" src="assets/example-001.png" alt="Example">
+<img width="38%" src="assets/example-001.png" alt="Example">
 
 ***
 
@@ -45,7 +45,7 @@ std::cout << Colorize::rich24<0xeb106f, 0x263640>("Hello World", {Beautifier::em
 std::cout << Colorize::rich<199, 253>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
 ```
 ##### which gives
-<img width="20%" src="assets/example-002.png" alt="Example">
+<img width="38%" src="assets/example-002.png" alt="Example">
 
 <br>
 
