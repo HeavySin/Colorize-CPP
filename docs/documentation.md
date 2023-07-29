@@ -265,7 +265,12 @@ std::cout << Colorize::rich8V<923, -3247>("Hello World") << std::endl;
 so there is no worrying about getting crashed!
 
 # Styles
-As you can see in [here](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L55-L67), There are quite a few styles that you can use despite the ColorScheme or method that you are using.
+As you can see in here,
+
+https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L55-L67
+
+There are quite a few styles that you can use despite the ColorScheme or method that you are using.
+
 ##### Refer to [here](https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters) for more styles.
 
 <br>
