@@ -52,4 +52,4 @@ std::cout << Colorize::rich<199, 253>("Hello World", {Beautifier::emphasis::BOLD
 # Installation
 Since it's **Header-Only**,
 <br>
-Just copy and paste [**colorize.h**](/src/colorize.hpp) next to your **Project/Path** (`e.g. on linux /usr/include/`)
+Just copy and paste [**colorize.h**](/src/colorize.hpp) next to your **Project/Path** (`e.g. /usr/include/ on linux`)
