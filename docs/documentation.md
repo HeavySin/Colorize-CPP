@@ -57,7 +57,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 # Structure
 
-### 24 BIT <sup>True Color</sup>
+### 24 BIT <sup>[TrueColor](#24-bit-or-true-color)</sup>
 
 - #### Use by value
   ```CPP
@@ -106,7 +106,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 <br>
 
-### 8 BIT <sup>0-255</sup>
+### 8 BIT <sup>[0-255](#8-bit)</sup>
 
 - #### Use by value
   ```CPP
@@ -155,7 +155,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 <br>
 
-### 3/4 BIT <sup>[16](https://github.com/HeavySin/Colorize/blob/a6c4080b30e5227d10ce35563aa2d16b0412f989/src/colorize.hpp#L70-L114)</sup>
+### 3/4 BIT <sup>[16](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L70-L114)</sup>
 
 - #### Use by value
   ```CPP
@@ -241,7 +241,7 @@ You can use different ranges of colors, contrary to the intended function.
 
 |                   |   Colorize::rich4   |   Colorize::rich8   |       Colorize::rich24       |
 |       :---:       |        :---:        |        :---:        |             :---:            |
-|  **Color-Range**  | `0` through `15` <sup>&#8226; **See** [**1**](https://github.com/HeavySin/Colorize/blob/a6c4080b30e5227d10ce35563aa2d16b0412f989/src/colorize.hpp#L70-L114), [**2**](#34-bit)</sup> | `0` through `255` <sup>&#8226; **See** [**1**](#8-bit)</sup>  | `#000000` through `#ffffff` <sup>&#8226; **See** [**1**](#24-bit-or-true-color)</sup>  |
+|  **Color-Range**  | `0` through `15` <sup>&#8226; **See** [**1**](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L70-L114), [**2**](#34-bit)</sup> | `0` through `255` <sup>&#8226; **See** [**1**](#8-bit)</sup>  | `#000000` through `#ffffff` <sup>&#8226; **See** [**1**](#24-bit-or-true-color)</sup>  |
 |   **No-Color**    | `≤ -1` | `≤ -1` or `256 ≤` | `≤ -1` or `#ffffff ≤`      |
 
 Let's say you just want to add a *Background Color* and you want the *Foreground Color* to be nothing (or rather unchanged).
