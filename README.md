@@ -15,6 +15,7 @@
 - [Supported Platforms](#supported-on)
 - [Usage](#using-at-a-glance)
 - [Described](#described)
+- [Installation](#installation)
 - [Documentation](#documentation)
 
 <br>
@@ -88,3 +89,10 @@ std::cout <<
 
 << std::endl;
 ```
+
+<br>
+
+# Installation
+Since it's **Header-Only**,
+<br>
+Just copy and paste [**colorize.h**](/src/colorize.h) next to your **Project/Path** (`e.g. on linux /usr/include/`)
