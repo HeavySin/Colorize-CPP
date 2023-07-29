@@ -92,7 +92,7 @@ namespace Beautifier {
         // All 3BIT Colors are till here,
         // the rest is 4BIT
 
-        // 3BIT FOREGROUND COLORS
+        // 4BIT FOREGROUND COLORS
         FOREGROUND_Gray = 90,
         FOREGROUND_LIGHT_Red = 91,
         FOREGROUND_LIGHT_Green = 92,
@@ -102,7 +102,7 @@ namespace Beautifier {
         FOREGROUND_LIGHT_Cyan = 96,
         FOREGROUND_LIGHT_White = 97,
 
-        // 3BIT BACKGROUND COLORS
+        // 4BIT BACKGROUND COLORS
         BACKGROUND_Gray = 100,
         BACKGROUND_LIGHT_Red = 101,
         BACKGROUND_LIGHT_Green = 102,
