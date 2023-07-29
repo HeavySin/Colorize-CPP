@@ -241,25 +241,25 @@ You can use different ranges of colors, contrary to the intended function.
 
 |                   |   Colorize::rich4   |   Colorize::rich8   |       Colorize::rich24       |
 |       :---:       |        :---:        |        :---:        |             :---:            |
-|  **Color-Range**  | `0` through `15` <sup>&#8226; **See** [**1**](https://github.com/HeavySin/Colorize/blob/a6c4080b30e5227d10ce35563aa2d16b0412f989/src/colorize.hpp#L70-L114), [**2**](#34-bit)</sup>    | `0` through `255` <sup>&#8226; **See** [**1**](#8-bit)</sup>  | `#000000` through `#ffffff` <sup>&#8226; **See** [**1**](#24-bit-or-true-color)</sup>  |
-|   **No-Color**    | `>= -1` or `16 =<`  | `>= -1` or `256 =<` | `>= -1` or `#ffffff =<`      |
+|  **Color-Range**  | `0` through `15` <sup>&#8226; **See** [**1**](https://github.com/HeavySin/Colorize/blob/a6c4080b30e5227d10ce35563aa2d16b0412f989/src/colorize.hpp#L70-L114), [**2**](#34-bit)</sup> | `0` through `255` <sup>&#8226; **See** [**1**](#8-bit)</sup>  | `#000000` through `#ffffff` <sup>&#8226; **See** [**1**](#24-bit-or-true-color)</sup>  |
+|   **No-Color**    | `≤ -1` | `≤ -1` or `256 ≤` | `≤ -1` or `#ffffff ≤`      |
 
-So let's say you just want to add a *Background Color* and you want the *Foreground Color* to be nothing (or rather unchanged).
+Let's say you just want to add a *Background Color* and you want the *Foreground Color* to be nothing (or rather unchanged).
 You'll just have to use an `out-of-range` Color-Code as mentioned in the table, **like**:
 ```CPP
-std::cout << Colorize::rich24<-1, 0x263640>("Hello World") << std::endl;
+std::cout << Colorize::rich24V<-1, 0x263640>("Hello World") << std::endl;
 
 // or
-std::cout << Colorize::rich24<0xeb106f, -1>("Hello World") << std::endl;
+std::cout << Colorize::rich24V<0xeb106f, -1>("Hello World") << std::endl;
 
 // or
-std::cout << Colorize::rich8<256, 253>("Hello World") << std::endl;
+std::cout << Colorize::rich8V<256, 253>("Hello World") << std::endl;
 
 // or
-std::cout << Colorize::rich8<199, -1>("Hello World") << std::endl;
+std::cout << Colorize::rich8V<199, -1>("Hello World") << std::endl;
 
 // or even
-std::cout << Colorize::rich8<923, -3247>("Hello World") << std::endl;
+std::cout << Colorize::rich8V<923, -3247>("Hello World") << std::endl;
 ```
 
 so there is no worrying about getting crashed!
