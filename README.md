@@ -16,7 +16,7 @@
 - [Usage](#using-at-a-glance)
 - [Described](#described)
 - [Installation](#installation)
-- [Documentation](#documentation)
+- [Documentation](/docs/documentation.md)
 
 <br>
 
