@@ -4,9 +4,6 @@
 #include <cinttypes>
 #include <algorithm>
 #include <list>
-#include <sstream>
-#include <utility>
-#include <chrono>
 
 namespace Beautifier {
     const static uint16_t ANSI_MAX_HEX_COLOR_LENGTH{6};
