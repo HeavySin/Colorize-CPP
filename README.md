@@ -95,4 +95,4 @@ std::cout <<
 # Installation
 Since it's **Header-Only**,
 <br>
-Just copy and paste [**colorize.h**](/src/colorize.h) next to your **Project/Path** (`e.g. on linux /usr/include/`)
+Just copy and paste [**colorize.h**](/src/colorize.hpp) next to your **Project/Path** (`e.g. on linux /usr/include/`)
