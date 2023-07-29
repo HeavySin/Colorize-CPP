@@ -14,7 +14,6 @@
 
 - [Supported Platforms](#supported-on)
 - [Usage](#using-at-a-glance)
-- [Described](#described)
 - [Installation](#installation)
 - [Documentation](/docs/documentation.md)
 
@@ -47,48 +46,6 @@ std::cout << Colorize::rich<199, 253>("Hello World", {Beautifier::emphasis::BOLD
 ```
 ##### which gives
 <img width="38%" src="assets/example-002.png" alt="Example">
-
-<br>
-
-# Described
-
-### 24 BIT <sup>True Color</sup>
-```CPP
-std::cout <<
-
-  Colorize::rich24<
-            0xeb106f /* Foreground-Color : Hex */,
-            0x263640 /* Background-Color : Hex */
-            >
-            ("Hello World" /* Text : std::string */,
-            {
-                // Styles : Beautifier::emphasis
-                Beautifier::emphasis::BOLD
-            }
-            )
-
-<< std::endl;
-```
-
-<br>
-
-### 8 BIT <sup>0-255</sup>
-```CPP
-std::cout <<
-
-  Colorize::rich<
-            199 /* Foreground-Color : ColorCode */,
-            253 /* Background-Color : ColorCode */
-            >
-            ("Hello World" /* Text : std::string */,
-            {
-                // Styles : Beautifier::emphasis
-                Beautifier::emphasis::BOLD
-            }
-            )
-
-<< std::endl;
-```
 
 <br>
 
