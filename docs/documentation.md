@@ -29,10 +29,9 @@ Modern OSs (`e.g. MacOS, Linux`) and Terminal Enulators (`e.g. Alacritty, Secure
 # 8 BIT
 Mostly supported on any UNIX like OSs and Terminal Enulators.
 
-<h3 align="center">8 Bit Color Palettes</h3>
+<h3 align="center">8 Bit Color Palette</h3>
 <p align="center" width="100%">
   <img width="85%" src="../assets/8BIT-Colors.png">
-  <img width="30%" src="../assets/8BIT-Colors-2.png">
 </p>
 
 <br>
