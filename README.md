@@ -13,7 +13,7 @@
 ## Table of Contents
 
 - [Supported Platforms](#supported-on)
-- [Usage](#use-at-a-glance)
+- [Usage](#using-at-a-glance)
 - [Described](#described)
 - [Documentation](#documentation)
 
