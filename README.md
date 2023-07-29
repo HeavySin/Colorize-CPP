@@ -4,7 +4,7 @@
 <h1 align="center">Demo</h1>
 <p align="center" width=100%">
   <img width="48%" src="assets/colorize-demo.gif" alt="Demo GIF">
-  &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp;
   <img width="45%" src="assets/gradient-demo.png" alt="Demo Gradiant">
 </p>
 
