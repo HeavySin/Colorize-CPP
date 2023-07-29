@@ -1,9 +1,8 @@
 ## Table of Contents
 
 - [Brief discussion](#brief-discussion)
-- [Usage](#using-at-a-glance)
+- [Usage](#usage)
 - [Described](#described)
-- [Installation](#installation)
 - [References](#references)
 
 <br>
@@ -54,6 +53,6 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 ## See also:
 - [ANSI Escape Codes - Github](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797)
 - [ANSI Escape Codes - StackOverflow](https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences)
-- [Color depth](https://en.wikipedia.org/wiki/Color_depth#True_color_.2824-bit.29)
 - [Build your own Command Line with ANSI](http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html)
 - [Difference between color schemes](https://www.computerhope.com/issues/ch001557.htm)
+- [Color depth](https://en.wikipedia.org/wiki/Color_depth#True_color_.2824-bit.29)
