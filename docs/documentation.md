@@ -1,8 +1,14 @@
 ## Table of Contents
 
-- [Brief discussion](#brief-discussion)
-- [Usage](#usage)
-- [Described](#described)
+- **Getting Started**
+    - [Brief discussion](#brief-discussion)
+    - [Structure & Component](#structure)
+    - **Use By**
+      - [Value](#use-by-value)
+      - [Reference](#use-by-reference)
+    - [Colors](#colors)
+    - [Styles](#styles)
+        
 - [References](#references)
 
 <br>
@@ -46,6 +52,174 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 </p>
 
 <br>
+
+***
+
+# Structure
+
+### 24 BIT <sup>True Color</sup>
+
+- #### Use by value
+  ```CPP
+  std::cout << Colorize::rich24<0xeb106f, 0x263640>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+  ```
+  ```CPP
+  std::cout <<
+  
+    Colorize::rich24<
+              0xeb106f /* Foreground-Color : Hex */,
+              0x263640 /* Background-Color : Hex */
+              >
+            (
+              "Hello World" /* Text : std::string */,
+              {
+                  // Styles : Beautifier::emphasis
+                  Beautifier::emphasis::BOLD
+              }
+            )
+  
+  << std::endl;
+  ```
+
+- #### Use by reference
+  ```CPP
+  std::cout << Colorize::rich24("Hello World", 0xeb106f, 0x263640, {Beautifier::emphasis::BOLD}) << std::endl;
+  ```
+  ```CPP
+  std::cout <<
+  
+    Colorize::rich24
+            (
+              "Hello World" /* Text : std::string */,
+  
+              0xeb106f /* Foreground-Color : Hex */,
+              0x263640 /* Background-Color : Hex */
+  
+              {
+                  // Styles : Beautifier::emphasis
+                  Beautifier::emphasis::BOLD
+              }
+            )
+  
+  << std::endl;
+  ```
+
+<br>
+
+### 8 BIT <sup>0-255</sup>
+
+- #### Use by value
+  ```CPP
+  std::cout << Colorize::rich8<199, 253>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+  ```
+  ```CPP
+  std::cout <<
+  
+    Colorize::rich24<
+              199 /* Foreground-Color : ColorCode */,
+              253 /* Background-Color : ColorCode */
+              >
+            (
+              "Hello World" /* Text : std::string */,
+              {
+                  // Styles : Beautifier::emphasis
+                  Beautifier::emphasis::BOLD
+              }
+            )
+  
+  << std::endl;
+  ```
+
+- #### Use by reference
+  ```CPP
+  std::cout << Colorize::rich8("Hello World", 199, 253, {Beautifier::emphasis::BOLD}) << std::endl;
+  ```
+  ```CPP
+  std::cout <<
+  
+    Colorize::rich24
+            (
+              "Hello World" /* Text : std::string */,
+  
+              199 /* Foreground-Color : ColorCode */,
+              253 /* Background-Color : ColorCode */
+  
+              {
+                  // Styles : Beautifier::emphasis
+                  Beautifier::emphasis::BOLD
+              }
+            )
+  
+  << std::endl;
+  ```
+
+***
+
+## Use by value
+These functions **✖ cannot** take their Color parameters as a reference.
+##### Examples:
+```CPP
+// Wrong ❌
+int foregroundColor = 0xeb106f;
+int backgroundColor = 0x263640;
+
+std::cout << Colorize::rich24<foregroundColor, backgroundColor>("Hello World") << std::endl;
+```
+```CPP
+// Correct ✅
+std::cout << Colorize::rich24<0xeb106f, 0x263640>("Hello World") << std::endl;
+```
+
+## Use by reference
+These functions **✔ can** take their Color parameters as a reference.
+##### Examples:
+```CPP
+// Correct ✅
+int foregroundColor = 0xeb106f;
+int backgroundColor = 0x263640;
+
+std::cout << Colorize::rich24("Hello World", foregroundColor, backgroundColor) << std::endl;
+```
+```CPP
+// Correct ✅
+std::cout << Colorize::rich24("Hello World", 0xeb106f, 0x263640) << std::endl;
+```
+
+As you might be noticed, the only difference between the **Use by Value and Reference** is in the way that they get their parameters.
+
+# Colors
+You can use different ranges of colors, contrary to the intended function.
+
+|                   |   Colorize::rich4   |   Colorize::rich8   |       Colorize::rich24       |
+|       :---:       |        :---:        |        :---:        |             :---:            |
+|  **Color-Range**  | `0` through `15`    | `0` through `255`   | `#000000` through `#ffffff`  |
+|   **No-Color**    | `>= -1` or `16 =<`  | `>= -1` or `256 =<` | `>= -1` or `#ffffff =<`      |
+
+So let's say you just want to add a *Background Color* and you want the *Foreground Color* to be nothing (or rather unchanged).
+You'll just have to use an `out-of-range` Color-Code as mentioned in the table, **like**:
+```CPP
+std::cout << Colorize::rich24<-1, 0x263640>("Hello World") << std::endl;
+
+// or
+std::cout << Colorize::rich24<0xeb106f, -1>("Hello World") << std::endl;
+
+// or
+std::cout << Colorize::rich8<256, 253>("Hello World") << std::endl;
+
+// or
+std::cout << Colorize::rich8<199, -1>("Hello World") << std::endl;
+
+// or even
+std::cout << Colorize::rich8<923, -3247>("Hello World") << std::endl;
+```
+
+so there is no worrying about getting crashed!
+
+# Styles
+
+<br>
+
+---
 
 # References
 ##### Full explanation at holly [**WikiPedia**](https://en.wikipedia.org/wiki/ANSI_escape_code)
