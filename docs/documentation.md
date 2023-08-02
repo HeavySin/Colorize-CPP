@@ -61,7 +61,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 - #### Use by value
   ```CPP
-  std::cout << Colorize::rich24V<0xeb106f, 0x263640>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+  std::cout << Colorize::rich24V<0xeb106f, 0x263640>("Hello World", {Colorizer::emphasis::BOLD}) << std::endl;
   ```
   ```CPP
   std::cout <<
@@ -73,8 +73,8 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
             (
               "Hello World" /* Text : std::string */,
               {
-                  // Styles : Beautifier::emphasis
-                  Beautifier::emphasis::BOLD
+                  // Styles : Colorizer::emphasis
+                  Colorizer::emphasis::BOLD
               }
             )
   
@@ -83,7 +83,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 - #### Use by reference
   ```CPP
-  std::cout << Colorize::rich24R("Hello World", 0xeb106f, 0x263640, {Beautifier::emphasis::BOLD}) << std::endl;
+  std::cout << Colorize::rich24R("Hello World", 0xeb106f, 0x263640, {Colorizer::emphasis::BOLD}) << std::endl;
   ```
   ```CPP
   std::cout <<
@@ -96,8 +96,8 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
               0x263640 /* Background-Color : Hex */
   
               {
-                  // Styles : Beautifier::emphasis
-                  Beautifier::emphasis::BOLD
+                  // Styles : Colorizer::emphasis
+                  Colorizer::emphasis::BOLD
               }
             )
   
@@ -110,7 +110,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 - #### Use by value
   ```CPP
-  std::cout << Colorize::rich8V<199, 253>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+  std::cout << Colorize::rich8V<199, 253>("Hello World", {Colorizer::emphasis::BOLD}) << std::endl;
   ```
   ```CPP
   std::cout <<
@@ -122,8 +122,8 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
             (
               "Hello World" /* Text : std::string */,
               {
-                  // Styles : Beautifier::emphasis
-                  Beautifier::emphasis::BOLD
+                  // Styles : Colorizer::emphasis
+                  Colorizer::emphasis::BOLD
               }
             )
   
@@ -132,7 +132,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 - #### Use by reference
   ```CPP
-  std::cout << Colorize::rich8R("Hello World", 199, 253, {Beautifier::emphasis::BOLD}) << std::endl;
+  std::cout << Colorize::rich8R("Hello World", 199, 253, {Colorizer::emphasis::BOLD}) << std::endl;
   ```
   ```CPP
   std::cout <<
@@ -145,8 +145,8 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
               253 /* Background-Color : ColorCode */
   
               {
-                  // Styles : Beautifier::emphasis
-                  Beautifier::emphasis::BOLD
+                  // Styles : Colorizer::emphasis
+                  Colorizer::emphasis::BOLD
               }
             )
   
@@ -159,20 +159,20 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 - #### Use by value
   ```CPP
-  std::cout << Colorize::rich4V<Beautifier::BIT_4_COLORS::FOREGROUND_LIGHT_Blue, Beautifier::BIT_4_COLORS::BACKGROUND_Magenta>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+  std::cout << Colorize::rich4V<Colorizer::BIT_4_COLORS::FOREGROUND_LIGHT_Blue, Colorizer::BIT_4_COLORS::BACKGROUND_Magenta>("Hello World", {Colorizer::emphasis::BOLD}) << std::endl;
   ```
   ```CPP
   std::cout <<
   
     Colorize::rich4V<
-              Beautifier::BIT_4_COLORS::FOREGROUND_LIGHT_Blue /* Foreground-Color : BIT_4_COLORS */,
-              Beautifier::BIT_4_COLORS::BACKGROUND_Magenta /* Background-Color : BIT_4_COLORS */
+              Colorizer::BIT_4_COLORS::FOREGROUND_LIGHT_Blue /* Foreground-Color : BIT_4_COLORS */,
+              Colorizer::BIT_4_COLORS::BACKGROUND_Magenta /* Background-Color : BIT_4_COLORS */
               >
             (
               "Hello World" /* Text : std::string */,
               {
-                  // Styles : Beautifier::emphasis
-                  Beautifier::emphasis::BOLD
+                  // Styles : Colorizer::emphasis
+                  Colorizer::emphasis::BOLD
               }
             )
   
@@ -181,7 +181,7 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
 
 - #### Use by reference
   ```CPP
-  std::cout << Colorize::rich4R("Hello World", Beautifier::BIT_4_COLORS::FOREGROUND_LIGHT_Blue, Beautifier::BIT_4_COLORS::BACKGROUND_Magenta, {Beautifier::emphasis::BOLD}) << std::endl;
+  std::cout << Colorize::rich4R("Hello World", Colorizer::BIT_4_COLORS::FOREGROUND_LIGHT_Blue, Colorizer::BIT_4_COLORS::BACKGROUND_Magenta, {Colorizer::emphasis::BOLD}) << std::endl;
   ```
   ```CPP
   std::cout <<
@@ -190,12 +190,12 @@ This coloring scheme is supported on systems since 1980s so, yours mostly suppor
             (
               "Hello World" /* Text : std::string */,
   
-              Beautifier::BIT_4_COLORS::FOREGROUND_LIGHT_Blue /* Foreground-Color : BIT_4_COLORS */,
-              Beautifier::BIT_4_COLORS::BACKGROUND_Magenta /* Background-Color : BIT_4_COLORS */
+              Colorizer::BIT_4_COLORS::FOREGROUND_LIGHT_Blue /* Foreground-Color : BIT_4_COLORS */,
+              Colorizer::BIT_4_COLORS::BACKGROUND_Magenta /* Background-Color : BIT_4_COLORS */
   
               {
-                  // Styles : Beautifier::emphasis
-                  Beautifier::emphasis::BOLD
+                  // Styles : Colorizer::emphasis
+                  Colorizer::emphasis::BOLD
               }
             )
   
