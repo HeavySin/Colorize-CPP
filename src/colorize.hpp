@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <set>
 
-namespace Beautifier {
+namespace Colorizer {
     struct RGB_CONTAINER {
     public:
         const int32_t HEX;
@@ -92,7 +92,7 @@ namespace Beautifier {
         // All 3BIT Colors are till here,
         // the rest is 4BIT
 
-        // 4BIT FOREGROUND COLORS
+        // 3BIT FOREGROUND COLORS
         FOREGROUND_Gray = 90,
         FOREGROUND_LIGHT_Red = 91,
         FOREGROUND_LIGHT_Green = 92,
@@ -102,7 +102,7 @@ namespace Beautifier {
         FOREGROUND_LIGHT_Cyan = 96,
         FOREGROUND_LIGHT_White = 97,
 
-        // 4BIT BACKGROUND COLORS
+        // 3BIT BACKGROUND COLORS
         BACKGROUND_Gray = 100,
         BACKGROUND_LIGHT_Red = 101,
         BACKGROUND_LIGHT_Green = 102,
@@ -117,34 +117,43 @@ namespace Beautifier {
     const static char ANSI_DELIMITER{';'};
     const static char ANSI_CURSOR_MANIPULATOR_DELIMITER{'?'};
     const static char ANSI_ESCAPE_SEQUENCE{'\033'};
-    const static std::basic_string<char> ANSI_ESCAPE_SEQUENCE_STRING{
-            Beautifier::ANSI_ESCAPE_SEQUENCE + std::basic_string<char>("[")};
+    const static std::basic_string<char>
+            ANSI_ESCAPE_SEQUENCE_STRING{
+            Colorizer::ANSI_ESCAPE_SEQUENCE
+            + std::basic_string<char>("[")};
     const static uint16_t ANSI_MAX_COLOR_SIZE{255};
-    const static std::basic_string<char> ANSI_RESET{
-            Beautifier::ANSI_ESCAPE_SEQUENCE + std::basic_string<char>("[0m")};
+    const static std::basic_string<char>
+            ANSI_RESET{
+            Colorizer::ANSI_ESCAPE_SEQUENCE
+            + std::basic_string<char>("[0m")};
 
-    const static std::basic_string<char> ANSI_CURSOR_MANIPULATOR_HIDE{
-            Beautifier::ANSI_ESCAPE_SEQUENCE + std::basic_string<char>("[")
-            + Beautifier::ANSI_CURSOR_MANIPULATOR_DELIMITER
+    const static std::basic_string<char>
+            ANSI_CURSOR_MANIPULATOR_HIDE{
+            Colorizer::ANSI_ESCAPE_SEQUENCE
+            + std::basic_string<char>("[")
+            + Colorizer::ANSI_CURSOR_MANIPULATOR_DELIMITER
             + "25l"};
 
-    const static std::basic_string<char> ANSI_CURSOR_MANIPULATOR_SHOW{
-            Beautifier::ANSI_ESCAPE_SEQUENCE + std::basic_string<char>("[")
-            + Beautifier::ANSI_CURSOR_MANIPULATOR_DELIMITER
+    const static std::basic_string<char>
+            ANSI_CURSOR_MANIPULATOR_SHOW{
+            Colorizer::ANSI_ESCAPE_SEQUENCE
+            + std::basic_string<char>("[")
+            + Colorizer::ANSI_CURSOR_MANIPULATOR_DELIMITER
             + "25h"};
 
     namespace Manipulators {
         inline constexpr std::basic_string<char> RGBToANSI(const RGB_CONTAINER &hexColorArg) {
-            return std::to_string(hexColorArg.R) + ';' + std::to_string(hexColorArg.G) + ';' +
-                   std::to_string(hexColorArg.B);
+            return std::to_string(hexColorArg.R)
+                   + ';' + std::to_string(hexColorArg.G)
+                   + ';' + std::to_string(hexColorArg.B);
         }
 
         inline void HideCursor(void) {
-            std::cout << Beautifier::ANSI_CURSOR_MANIPULATOR_HIDE << std::flush;
+            std::cout << Colorizer::ANSI_CURSOR_MANIPULATOR_HIDE << std::flush;
         }
 
         inline void ShowCursor(void) {
-            std::cout << Beautifier::ANSI_CURSOR_MANIPULATOR_SHOW << std::flush;
+            std::cout << Colorizer::ANSI_CURSOR_MANIPULATOR_SHOW << std::flush;
         }
     }
 }
@@ -160,19 +169,19 @@ private:
             a ColorState which determines the state of the given ColorCode
 
     */
-    template<Beautifier::colorMode colorModeArg, typename T>
+    template<Colorizer::colorMode colorModeArg, typename T>
     static constexpr bool isValidColor(T colorCodeArg) {
         switch (colorModeArg) {
-            case Beautifier::BIT_4:
+            case Colorizer::BIT_4:
                 return (
                         (colorCodeArg >= 30 && colorCodeArg <= 37 || colorCodeArg >= 90 && colorCodeArg <= 97)
                         ||
                         (colorCodeArg >= 40 && colorCodeArg <= 47 || colorCodeArg >= 100 && colorCodeArg <= 107)
                 );
-            case Beautifier::BIT_8:
-                return colorCodeArg >= 0 && colorCodeArg <= Beautifier::ANSI_MAX_COLOR_SIZE;
-            case Beautifier::BIT_24: {
-                auto colorCodeHolder = (Beautifier::RGB_CONTAINER) colorCodeArg;
+            case Colorizer::BIT_8:
+                return colorCodeArg >= 0 && colorCodeArg <= Colorizer::ANSI_MAX_COLOR_SIZE;
+            case Colorizer::BIT_24: {
+                auto colorCodeHolder = (Colorizer::RGB_CONTAINER) colorCodeArg;
                 return (colorCodeHolder.R >= 0 && colorCodeHolder.R <= 255) &&
                        (colorCodeHolder.G >= 0 && colorCodeHolder.G <= 255) &&
                        (colorCodeHolder.B >= 0 && colorCodeHolder.B <= 255);
@@ -191,52 +200,52 @@ private:
             A string containing the start EscapeSequence for a given ColorScheme && ColorMode
 
     */
-    template<Beautifier::colorMode colorModeArg>
+    template<Colorizer::colorMode colorModeArg>
     static constexpr std::basic_string<char>
     colorSchemeStyle(const int32_t &foregroundColorArg = -1,
                      const int32_t &backgroundColorArg = -1,
-                     const std::set<Beautifier::emphasis> &stylesArg = {}) {
+                     const std::set<Colorizer::emphasis> &stylesArg = {}) {
         bool backgroundColorState = Colorize::isValidColor<colorModeArg>(backgroundColorArg);
         bool foregroundColorState = Colorize::isValidColor<colorModeArg>(foregroundColorArg);
 
         std::basic_string<char> backgroundStartTemp{
-                backgroundColorState && colorModeArg != Beautifier::BIT_4 ? Beautifier::ANSI_ESCAPE_SEQUENCE_STRING
-                                                                          : ""};
+                backgroundColorState && colorModeArg != Colorizer::BIT_4 ? Colorizer::ANSI_ESCAPE_SEQUENCE_STRING
+                                                                         : ""};
         std::basic_string<char> foregroundStartTemp{
-                foregroundColorState || !stylesArg.empty() ? Beautifier::ANSI_ESCAPE_SEQUENCE_STRING : ""};
+                foregroundColorState || !stylesArg.empty() ? Colorizer::ANSI_ESCAPE_SEQUENCE_STRING : ""};
 
-        if (colorModeArg == Beautifier::colorMode::BIT_4) {
+        if (colorModeArg == Colorizer::colorMode::BIT_4) {
             if (backgroundColorState) { foregroundStartTemp += std::to_string(backgroundColorArg) + ';'; }
             if (foregroundColorState) { foregroundStartTemp += std::to_string(foregroundColorArg) + ';'; }
 
         } else {
             if (backgroundColorState) {
-                backgroundStartTemp += std::to_string(Beautifier::colorScheme::Background)
-                                       + Beautifier::ANSI_DELIMITER
+                backgroundStartTemp += std::to_string(Colorizer::colorScheme::Background)
+                                       + Colorizer::ANSI_DELIMITER
                                        + std::to_string(colorModeArg)
-                                       + Beautifier::ANSI_DELIMITER
-                                       + (colorModeArg == Beautifier::colorMode::BIT_8
+                                       + Colorizer::ANSI_DELIMITER
+                                       + (colorModeArg == Colorizer::colorMode::BIT_8
                                           ? std::to_string(backgroundColorArg)
-                                          : Beautifier::Manipulators::RGBToANSI(
-                                Beautifier::RGB_CONTAINER(backgroundColorArg)))
+                                          : Colorizer::Manipulators::RGBToANSI(
+                                Colorizer::RGB_CONTAINER(backgroundColorArg)))
                                        + 'm';
             }
             if (foregroundColorState) {
-                foregroundStartTemp += std::to_string(Beautifier::colorScheme::Foreground)
-                                       + Beautifier::ANSI_DELIMITER
+                foregroundStartTemp += std::to_string(Colorizer::colorScheme::Foreground)
+                                       + Colorizer::ANSI_DELIMITER
                                        + std::to_string(colorModeArg)
-                                       + Beautifier::ANSI_DELIMITER
-                                       + (colorModeArg == Beautifier::colorMode::BIT_8
+                                       + Colorizer::ANSI_DELIMITER
+                                       + (colorModeArg == Colorizer::colorMode::BIT_8
                                           ? std::to_string(foregroundColorArg)
-                                          : Beautifier::Manipulators::RGBToANSI(
-                                Beautifier::RGB_CONTAINER(foregroundColorArg)))
-                                       + Beautifier::ANSI_DELIMITER;
+                                          : Colorizer::Manipulators::RGBToANSI(
+                                Colorizer::RGB_CONTAINER(foregroundColorArg)))
+                                       + Colorizer::ANSI_DELIMITER;
             }
         }
 
-        for (const Beautifier::emphasis &style: stylesArg) {
+        for (const Colorizer::emphasis &style: stylesArg) {
             foregroundStartTemp
-                    += std::to_string(Beautifier::_internals::EnumValue<uint16_t>(style)) + ';';
+                    += std::to_string(Colorizer::_internals::EnumValue<uint16_t>(style)) + ';';
         }
 
         if (!foregroundStartTemp.empty()) {
@@ -251,12 +260,12 @@ public:
     template<int16_t foregroundArg = -1, int16_t backgroundArg = -1>
     static std::basic_string<char>
     rich4V(const std::basic_string<char> &rawMessageArg,
-           const std::set<Beautifier::emphasis> &stylesArg = {}) {
-        return colorSchemeStyle<Beautifier::colorMode::BIT_4>
+           const std::set<Colorizer::emphasis> &stylesArg = {}) {
+        return colorSchemeStyle<Colorizer::colorMode::BIT_4>
                        (foregroundArg,
                         backgroundArg,
                         stylesArg)
-               + rawMessageArg + Beautifier::ANSI_RESET;
+               + rawMessageArg + Colorizer::ANSI_RESET;
     }
 
     // 4-BIT - [Used by Reference]
@@ -264,12 +273,12 @@ public:
     rich4R(const std::basic_string<char> &rawMessageArg,
            const int16_t &foregroundArg = -1,
            const int16_t &backgroundArg = -1,
-           const std::set<Beautifier::emphasis> &stylesArg = {}) {
-        return colorSchemeStyle<Beautifier::colorMode::BIT_4>
+           const std::set<Colorizer::emphasis> &stylesArg = {}) {
+        return colorSchemeStyle<Colorizer::colorMode::BIT_4>
                        (foregroundArg,
                         backgroundArg,
                         stylesArg)
-               + rawMessageArg + Beautifier::ANSI_RESET;
+               + rawMessageArg + Colorizer::ANSI_RESET;
     }
 
 
@@ -277,12 +286,12 @@ public:
     template<int16_t foregroundArg = -1, int16_t backgroundArg = -1>
     static std::basic_string<char>
     rich8V(const std::basic_string<char> &rawMessageArg,
-           const std::set<Beautifier::emphasis> &stylesArg = {}) {
-        return colorSchemeStyle<Beautifier::colorMode::BIT_8>
+           const std::set<Colorizer::emphasis> &stylesArg = {}) {
+        return colorSchemeStyle<Colorizer::colorMode::BIT_8>
                        (foregroundArg,
                         backgroundArg,
                         stylesArg)
-               + rawMessageArg + Beautifier::ANSI_RESET;
+               + rawMessageArg + Colorizer::ANSI_RESET;
     }
 
     // 8-BIT - [Used by Reference]
@@ -290,24 +299,24 @@ public:
     rich8R(const std::basic_string<char> &rawMessageArg,
            const int16_t &foregroundArg = -1,
            const int16_t &backgroundArg = -1,
-           const std::set<Beautifier::emphasis> &stylesArg = {}) {
-        return colorSchemeStyle<Beautifier::colorMode::BIT_8>
+           const std::set<Colorizer::emphasis> &stylesArg = {}) {
+        return colorSchemeStyle<Colorizer::colorMode::BIT_8>
                        (foregroundArg,
                         backgroundArg,
                         stylesArg)
-               + rawMessageArg + Beautifier::ANSI_RESET;
+               + rawMessageArg + Colorizer::ANSI_RESET;
     }
 
     // 24-BIT (TRUE-COLOR) - [Used by Value]
     template<int32_t foregroundArg = -1, int32_t backgroundArg = -1>
     static std::basic_string<char>
     rich24V(const std::basic_string<char> &rawMessageArg,
-            const std::set<Beautifier::emphasis> &stylesArg = {}) {
-        return colorSchemeStyle<Beautifier::colorMode::BIT_24>
+            const std::set<Colorizer::emphasis> &stylesArg = {}) {
+        return colorSchemeStyle<Colorizer::colorMode::BIT_24>
                        (foregroundArg,
                         backgroundArg,
                         stylesArg)
-               + rawMessageArg + Beautifier::ANSI_RESET;
+               + rawMessageArg + Colorizer::ANSI_RESET;
     }
 
     // 24-BIT (TRUE-COLOR) - [Used by Reference]
@@ -315,12 +324,12 @@ public:
     rich24R(const std::basic_string<char> &rawMessageArg,
             const int32_t &foregroundArg = -1,
             const int32_t &backgroundArg = -1,
-            const std::set<Beautifier::emphasis> &stylesArg = {}) {
-        return colorSchemeStyle<Beautifier::colorMode::BIT_24>
+            const std::set<Colorizer::emphasis> &stylesArg = {}) {
+        return colorSchemeStyle<Colorizer::colorMode::BIT_24>
                        (foregroundArg,
                         backgroundArg,
                         stylesArg)
-               + rawMessageArg + Beautifier::ANSI_RESET;
+               + rawMessageArg + Colorizer::ANSI_RESET;
     }
 };
 
