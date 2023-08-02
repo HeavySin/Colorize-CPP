@@ -32,7 +32,7 @@
 ### 24 BIT <sup>TrueColor</sup>
 ```C++
 // 24 BIT provides a color set of 16,777,216 colors.
-std::cout << Colorize::rich24V<0xeb106f, 0x263640>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+std::cout << Colorize::rich24V<0xeb106f, 0x263640>("Hello World", {Colorizer::emphasis::BOLD}) << std::endl;
 ```
 ##### which gives
 <img width="38%" src="assets/example-001.png" alt="Example 24-bit">
@@ -42,7 +42,7 @@ std::cout << Colorize::rich24V<0xeb106f, 0x263640>("Hello World", {Beautifier::e
 ### 8 BIT <sup>0-255</sup>
 ```C++
 // 8 BIT provides a color set of 0-255 colors.
-std::cout << Colorize::rich8V<199, 253>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+std::cout << Colorize::rich8V<199, 253>("Hello World", {Colorizer::emphasis::BOLD}) << std::endl;
 ```
 ##### which gives
 <img width="38%" src="assets/example-002.png" alt="Example 8-bit">
@@ -52,7 +52,7 @@ std::cout << Colorize::rich8V<199, 253>("Hello World", {Beautifier::emphasis::BO
 ### 3/4 BIT <sup>8/16</sup>
 ```C++
 // 3/4 BIT provides a color set of 8/16 colors.
-std::cout << Colorize::rich4V<Beautifier::BIT_4_COLORS::FOREGROUND_LIGHT_Blue, Beautifier::BIT_4_COLORS::BACKGROUND_Magenta>("Hello World", {Beautifier::emphasis::BOLD}) << std::endl;
+std::cout << Colorize::rich4V<Colorizer::BIT_4_COLORS::FOREGROUND_LIGHT_Blue, Colorizer::BIT_4_COLORS::BACKGROUND_Magenta>("Hello World", {Colorizer::emphasis::BOLD}) << std::endl;
 ```
 ##### which gives
 <img width="38%" src="assets/example-003.png" alt="Example 3/4-bit">
