@@ -242,7 +242,7 @@ You can use different ranges of colors, contrary to the intended function.
 |                   |   Colorize::rich4   |   Colorize::rich8   |       Colorize::rich24       |
 |       :---:       |        :---:        |        :---:        |             :---:            |
 |  **Color-Range**  | `0` through `15` <sup>&#8226; **See** [**1**](https://github.com/HeavySin/Colorize/blob/16ca987ecb9c1fbeb159e493b6a23ea7a2e47e8b/src/colorize.hpp#L70-L114), [**2**](#34-bit)</sup> | `0` through `255` <sup>&#8226; **See** [**1**](#8-bit)</sup>  | `#000000` through `#ffffff` <sup>&#8226; **See** [**1**](#24-bit-or-true-color)</sup>  |
-|   **No-Color**    | `≤ -1` | `≤ -1` or `256 ≤` | `≤ -1` or `#ffffff ≤`      |
+|   **No-Color**    | `≤ -1` | `≤ -1` or `255 <` | `≤ -1` or `#ffffff <`      |
 
 Let's say you just want to add a *Background Color* and you want the *Foreground Color* to be nothing (or rather unchanged).
 You'll just have to use an `out-of-range` Color-Code as mentioned in the table, **like**:
