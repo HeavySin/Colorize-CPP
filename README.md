@@ -1,5 +1,6 @@
 # Colorize
-> A library for colorizing texts in terminal.
+> A library for colorizing texts in terminal. <br>
+> For the C implementation refer to [here](https://github.com/HeavySin/Colorize-C)
 
 <h1 align="center">Demo</h1>
 <p align="center" width=100%">
