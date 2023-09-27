@@ -148,11 +148,11 @@ namespace Colorizer {
                    + ';' + std::to_string(hexColorArg.B);
         }
 
-        inline void HideCursor(void) {
+        inline void hidecursor(void) {
             std::cout << Colorizer::ANSI_CURSOR_MANIPULATOR_HIDE << std::flush;
         }
 
-        inline void ShowCursor(void) {
+        inline void showcursor(void) {
             std::cout << Colorizer::ANSI_CURSOR_MANIPULATOR_SHOW << std::flush;
         }
     }
