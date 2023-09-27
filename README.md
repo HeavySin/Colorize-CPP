@@ -64,4 +64,4 @@ std::cout << Colorize::rich4V<Colorizer::BIT_4_COLORS::FOREGROUND_LIGHT_Blue, Co
 # Installation
 Since it's **Header-Only**,
 <br>
-Just copy and paste [**`colorize.h`**](/src/colorize.hpp) next to your **Project/Path** (`e.g. /usr/include/ on linux`)
+Just copy and paste [**`colorize.h`**](/src/colorize.hpp) next to your **Project/Path** (`e.g. /usr/local/include/ on linux`)
